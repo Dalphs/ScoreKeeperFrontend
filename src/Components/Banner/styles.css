@@ -1,0 +1,8 @@
+.bannerContainer {
+    background-color: var(--dark);
+    max-width: none;
+}
+
+h1 {
+    color:var(--white);
+}
