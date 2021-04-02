@@ -9,26 +9,10 @@ export default function Input (props) {
     const [game, setGame] = useRecoilState(castlesGameState);
 
     const myField = useRef(null)
+    console.log(game)
     var onChange = (e) =>{
         let user = {id: props.id, playerName : e.target.value}
-        console.log(`Logging new User : ${updateElement(game.users, user)} `)
         setGame({users: updateElement(game.users, user)})
-        console.log(`Logging e : ${e.target.value} and logging id ${props.id}`)
-        setTimeout(()=>{console.log(game)}, 2000)
-        
-        /*let userArray = [...game.users]
-        let userExists = userArray.some((obj) =>{
-            if (obj.id === props.id){
-                obj.playerName = e.target;
-                setGame({users: userArray})
-                return true;
-            } 
-        })
-        if(!userExists){
-            let user = {id: props.id, playerName: e.target.value};
-            setGame({users: [...userArray, user]})
-        }
-        console.log(game)*/
     }
 
     return(

@@ -6,14 +6,12 @@ import Input from '../StandardElements/Input/Input.js'
 export default function PlayerNamesInit (props) {
     var inputs = [];
     var initialInputs = props.numberOfPlayers === null ? 2 : props.numberOfPlayers;
-    console.log(initialInputs)
 
     var onInputChange = (inputId, inputText) => {
 
     }
 
     var onInputFocus = (inputId) => {
-        console.log()
         if (inputId == inputs.length && inputs.length < props.maxNumberOfPlayers)
             inputs.push(<Row key={inputs.length + 1} ><Col><Input id={inputs.length + 1} onFocus={onInputFocus} onChange={onInputChange}></Input></Col></Row>);
     }

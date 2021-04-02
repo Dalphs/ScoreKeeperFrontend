@@ -16,6 +16,7 @@ export const updateElement = (elements, element) =>{
                 const key = Object.keys(element)[keyIndex];
                 newElement[key] = element[key]
             }
+            newElements.push(newElement)
         } else {
             newElements.push(elements[i])
         }
