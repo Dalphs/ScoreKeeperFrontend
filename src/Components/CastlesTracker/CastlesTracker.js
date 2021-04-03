@@ -8,7 +8,7 @@ export default function CastlesTracker (props) {
     return (
         <Container>
             <Row>
-                <Col id="nameInput">
+                <Col id="nameInput1">
                     <PlayerNamesInit numberOfPlayers={4} maxNumberOfPlayers={6}/>
                 </Col>
             </Row>
