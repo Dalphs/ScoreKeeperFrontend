@@ -1,8 +1,8 @@
 import {atom} from 'recoil';
 
-export const castlesGameState = atom({
-    key: "castleGameState",
-    default:{users:[], state: null}
+export const numberpadState = atom({
+    key: "numberState",
+    default:{display: "0"}
 })
 
 export const updateElement = (elements, element) =>{

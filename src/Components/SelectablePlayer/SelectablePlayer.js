@@ -1,21 +1,26 @@
 import {Row, Col, Container} from 'react-bootstrap'
+import {useEffect} from 'react'
 import './styles.css'
+import {useRecoilState} from 'recoil'
+import {castlesGameState} from '../../recoil/castlesGameState.js'
 
 
 export default function SelectablePlayer (props) {
-    var clicked = () =>{
-        console.log("Virker")
-    }
+    const [game, setgame] = useRecoilState(castlesGameState)
 
     return (
-        <Container className="container">
+        <Container className="container" key={props.id}>
             <Row>
-                
-            </Row>
-            <Row>
-                <Col>
-                    <button onClick={clicked}>Start Spil</button>
-                </Col>
+                {game.users.map((player) => {
+                    return(
+                        <Col>
+                            <div className="player" onClick={ () => {props.playerSelected(player.id)}}>
+                                <h1>{player.playerName}</h1>
+                                <h1>{player.points}</h1>
+                            </div>
+                        </Col>
+                    )
+                })}
             </Row>
         </Container>
     )
