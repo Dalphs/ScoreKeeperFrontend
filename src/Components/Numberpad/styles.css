@@ -19,3 +19,12 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.numberPadContainer .text-button{
+    font-size: 1.4em;
+}
+
+.numberPadContainer .active, .numberPadContainer .active:hover {
+    background-color: white;
+    color: black;
+}
