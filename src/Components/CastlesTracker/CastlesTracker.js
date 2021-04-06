@@ -7,6 +7,7 @@ import {useRecoilState} from 'recoil'
 import {castlesGameState} from '../../recoil/castlesGameState.js'
 import {numberpadState} from '../../recoil/numberpadState'
 import {numberpadSubtractState} from '../../recoil/numberpadSubtractState.js'
+import RandomPlayerSelect from '../RandomPlayerSelect/RandomPlayerSelect.js'
 import {useEffect} from 'react'
 
 
@@ -16,7 +17,7 @@ export default function CastlesTracker (props) {
     const [numberpadSubtract] = useRecoilState(numberpadSubtractState)
 
     useEffect(() => {
-        setGame({users: [...game.users], state : 1})
+        setGame({users: [...game.users], state : "Dev"/*1*/})
     }, [])
 
     let playerClicked = (id) => {
@@ -29,14 +30,22 @@ export default function CastlesTracker (props) {
         
     }
 
+    let currentScreen;
+    console.log(game.state)
+    if (game.state === 1){
+        currentScreen = <Col id="nameInput1"><PlayerNamesInit numberOfPlayers={3} maxNumberOfPlayers={6}/></Col>
+    } else if (game.state ===2) {
+        currentScreen = <Col><SelectablePlayer playerSelected={playerClicked}/><Numberpad/></Col>
+    } else {
+        currentScreen = <RandomPlayerSelect></RandomPlayerSelect>
+    }
+    
+
     return (
         <Container>
             <Row>
                 <Col id="nameInput1">
-                    {game.state === 2 ?
-                        <Col><SelectablePlayer playerSelected={playerClicked}/><Numberpad/></Col> : 
-                        <Col id="nameInput1"><PlayerNamesInit numberOfPlayers={4} maxNumberOfPlayers={6}/></Col>
-                    }
+                    {currentScreen}
                 </Col>
             </Row>
         </Container>
