@@ -1,19 +1,20 @@
 import {useRecoilState} from 'recoil';
 import './styles.css'
-import {logState, updateLog} from '../../../recoil/logState.js'
+import {logState, updateLog} from '../../recoil/logState.js'
 
-export default function Input (props) {
+export default function GameLog (props) {
 
-    const [log, setLog, addMessage, updateTime] = useRecoilState(castlesGameState);
+    const [log, setLog, addMessage, updateTime] = useRecoilState(logState);
 
 
     return(
         <div id="logContainer">
             <tbody>
-                {log.map(message => {
+                {console.log(log)}
+                {log.messages.map(message => {
                     return ( 
                         <tr>
-                            <td>{message.timeText}</td>
+                            <td>{message.timeString}</td>
                             <td>{message.text}</td>
                         </tr>
                     )

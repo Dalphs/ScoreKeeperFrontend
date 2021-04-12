@@ -13,7 +13,7 @@ const convertSeconds = (seconds) =>{
         timeString += `${Math.floor(seconds/3600)}t `;
     }
     if(seconds / 60 >= 1) {
-        minutes = Math.floor(seconds / 60) % 60
+        let minutes = Math.floor(seconds / 60) % 60
         if(minutes != 0 && hours)
             timeString += `${minutes}m `;
     }
@@ -24,6 +24,7 @@ export const addMessage = (message, messages) => {
     let newMessages = [...messages]
     let currentTime = Math.floor(Date.now() / 1000)
     newMessages.push({timestamp: currentTime, timeString: "Ny", text: message})
+    console.log(newMessages)
     return newMessages
 }
 
@@ -32,7 +33,7 @@ export const updateTime = (messages) =>{
     let oldMessages = [...messages]
     let newMessages = []
     oldMessages.forEach((message) => {
-        difference = unixSeconds - message.timestamp
+        let difference = unixSeconds - message.timestamp
         message.timeText = convertSeconds(difference)
         newMessages.push(message)
     })

@@ -1,0 +1,8 @@
+td {
+    color: white;
+    padding: 0.5rem 4rem;
+}
+
+tr :nth-child(even){
+    text-align: right;
+}
