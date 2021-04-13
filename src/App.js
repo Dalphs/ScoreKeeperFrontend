@@ -7,6 +7,7 @@ import {castlesGameState} from './recoil/castlesGameState.js'
 import {inputState} from './recoil/inputState.js'
 import {numberpadState} from './recoil/numberpadState.js'
 import {numberpadSubtractState} from './recoil/numberpadSubtractState.js'
+import {logState} from './recoil/logState.js'
 import Button from 'react-bootstrap/Button'
 import {useRecoilState} from 'recoil';
 
@@ -15,6 +16,7 @@ function App() {
    const [input] = useRecoilState(inputState)
    const [numberpadDisplay, setNumberpadDisplay] = useRecoilState(numberpadState);
     const [numberpadSubtract, setNumberpadSubtract]  =useRecoilState(numberpadSubtractState);
+    const [log, setLog]  =useRecoilState(logState);
 
    const logCastlesState = () =>{
      console.log(game);
@@ -28,6 +30,9 @@ function App() {
   const logNumberpadSubtractState = () =>{
    console.log(numberpadSubtract);
  }
+ const logLogState = () =>{
+  console.log(log.messages);
+}
 
   return (
     <div className="App">
@@ -37,6 +42,7 @@ function App() {
                 <button onClick={logInputState}>Log inputs</button>
                 <button onClick={logNumberpadState}>Log numberpad</button>
                 <button onClick={logNumberpadSubtractState}>Log subtract</button>
+                <button onClick={logLogState}>Log log</button>
                 </div> 
         : false}
       

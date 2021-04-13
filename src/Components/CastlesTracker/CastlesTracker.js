@@ -9,7 +9,7 @@ import {numberpadState} from '../../recoil/numberpadState'
 import {numberpadSubtractState} from '../../recoil/numberpadSubtractState.js'
 import {useEffect} from 'react'
 import GameLog from '../GameLog/GameLog.js'
-import {logState, addMessage} from '../../recoil/logState.js'
+import {logState, addMessage, updateTime} from '../../recoil/logState.js'
 
 
 
@@ -20,8 +20,113 @@ export default function CastlesTracker (props) {
     const [log, setLog] = useRecoilState(logState)
 
     useEffect(() => {
-        setGame({users: [...game.users], state : 1})
-        setLog({messages: addMessage(`Game has started`, log.messages)})
+        //setGame({users: [...game.users], state : 1})
+        //setLog({messages: addMessage(`Game has started`, log.messages)})
+        setGame({users: [{id:1, playerName: "Simon", points:10}, {id:2, playerName: "Sune", points:10}], state : 2})
+        setLog({messages: [
+            {
+                "timestamp": 1618340696,
+                "timeString": "Ny",
+                "text": "Game has started"
+            },
+            {
+                "timestamp": 1618340722,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340723,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340723,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340724,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340725,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340725,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340726,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340727,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340727,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340728,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340728,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340729,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340730,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340730,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340731,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340731,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340732,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            },
+            {
+                "timestamp": 1618340733,
+                "timeString": "Ny",
+                "text": "Simon fik 1 point"
+            }
+        ]})
+        let triggerUpdate = () => {
+            console.log(log)
+            setLog({messages: updateTime(log.messages)})
+            console.log(log)
+        }
+        
+        setTimeout(triggerUpdate ,10000)
     }, [])
 
     let playerClicked = (id) => {
@@ -43,9 +148,7 @@ export default function CastlesTracker (props) {
     } else if (game.state ===2) {
         currentScreen = <Row><Col><SelectablePlayer playerSelected={playerClicked}/><Numberpad/></Col>
         <Col><GameLog></GameLog></Col></Row>
-    } else {
-        currentScreen = <GameLog></GameLog>
-    }
+    } 
     
 
     return (

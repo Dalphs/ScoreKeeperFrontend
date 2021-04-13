@@ -2,7 +2,7 @@ import {atom} from 'recoil';
 
 export const castlesGameState = atom({
     key: "castleGameState",
-    default:{users:[], state: null}
+    default:{users:[], state: null} //User: {id, points, playerName}
 })
 
 export const updateElement = (elements, element) =>{
