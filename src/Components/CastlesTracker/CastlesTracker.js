@@ -19,6 +19,12 @@ export default function CastlesTracker (props) {
     const [numberpadSubtract] = useRecoilState(numberpadSubtractState)
     const [log, setLog] = useRecoilState(logState)
 
+    let triggerUpdate = () => {
+            console.log(log)
+            setLog({messages: updateTime(log.messages)})
+            console.log(log)
+        }
+
     useEffect(() => {
         //setGame({users: [...game.users], state : 1})
         //setLog({messages: addMessage(`Game has started`, log.messages)})
@@ -120,13 +126,14 @@ export default function CastlesTracker (props) {
                 "text": "Simon fik 1 point"
             }
         ]})
-        let triggerUpdate = () => {
-            console.log(log)
-            setLog({messages: updateTime(log.messages)})
-            console.log(log)
-        }
         
-        setTimeout(triggerUpdate ,10000)
+        const updateInterval = setInterval(() => {
+            setLog(prev => {
+                console.log(prev)
+                return [updateTime(prev.messages)]
+            })
+        } ,10000)
+        return () => clearInterval(updateInterval);
     }, [])
 
     let playerClicked = (id) => {
