@@ -19,12 +19,6 @@ export default function CastlesTracker (props) {
     const [numberpadSubtract] = useRecoilState(numberpadSubtractState)
     const [log, setLog] = useRecoilState(logState)
 
-    let triggerUpdate = () => {
-            console.log(log)
-            setLog({messages: updateTime(log.messages)})
-            console.log(log)
-        }
-
     useEffect(() => {
         //setGame({users: [...game.users], state : 1})
         //setLog({messages: addMessage(`Game has started`, log.messages)})
@@ -129,8 +123,7 @@ export default function CastlesTracker (props) {
         
         const updateInterval = setInterval(() => {
             setLog(prev => {
-                console.log(prev)
-                return [updateTime(prev.messages)]
+                return {messages: updateTime(prev.messages)}
             })
         } ,10000)
         return () => clearInterval(updateInterval);
@@ -140,7 +133,6 @@ export default function CastlesTracker (props) {
         let users = [...game.users];
         let player = {...users[id - 1]}
         player.points = numberpadSubtract.subtract ? Number(player.points) - Number(display.display) : Number(player.points) + Number(display.display);
-        console.log(log)
         setLog({messages : addMessage(`${player.playerName} ${numberpadSubtract.subtract ? "mistede": "fik"} ${display.display} point`, log.messages)});
         users[id-1] = player;
         setDisplay({display: 0})
@@ -149,7 +141,6 @@ export default function CastlesTracker (props) {
     }
 
     let currentScreen;
-    console.log(game.state)
     if (game.state === 1){
         currentScreen = <Col id="nameInput1"><PlayerNamesInit numberOfPlayers={3} maxNumberOfPlayers={6}/></Col>
     } else if (game.state ===2) {

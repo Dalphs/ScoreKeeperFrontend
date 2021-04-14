@@ -8,10 +8,11 @@ export default function GameLog (props) {
 
 
     return(
-        <div class="centerDiv">
+        <div className="centerDiv">
             <div id="logContainer">
                 <table>
                     <tbody id="logTable">
+                        {console.log(log.messages)}
                         {log.messages.map(message => {
                             return ( 
                                 <tr>

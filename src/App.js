@@ -31,7 +31,7 @@ function App() {
    console.log(numberpadSubtract);
  }
  const logLogState = () =>{
-  console.log(log.messages);
+  console.log(log);
 }
 
   return (

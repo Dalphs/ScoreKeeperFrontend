@@ -11,13 +11,17 @@ const convertSeconds = (seconds) =>{
     if(seconds / 3600 >= 1){
         hours = true;
         timeString += `${Math.floor(seconds/3600)}t `;
+        console.log(timeString)
     }
     if(seconds / 60 >= 1) {
         let minutes = Math.floor(seconds / 60) % 60
         if(minutes !== 0 && hours)
             timeString += `${minutes}m `;
+            console.log(timeString)
     }
     timeString += `${seconds % 60}s siden`
+    console.log(timeString)
+    return timeString
 }
 
 export const addMessage = (message, messages) => {
@@ -33,14 +37,14 @@ export const updateTime = (messages) =>{
     let oldMessages = [...messages]
     let newMessages = []
     oldMessages.forEach((message) => {
-        console.log(message);
-        let difference = unixSeconds - message.timestamp
-        message.timeString = convertSeconds(difference)
-        newMessages.push(message)
+        let temp = {...message}
+        let difference = unixSeconds - temp.timestamp
+        temp.timeString = convertSeconds(difference)
+        console.log(temp);
+        newMessages.push(temp)
     })
     console.log(newMessages)
-    return newMessages
-    
+    return newMessages;
 }
 
 
