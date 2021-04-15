@@ -1,4 +1,4 @@
-import {Row, Col, Container} from 'react-bootstrap'
+import {Row, Col, Container, Button} from 'react-bootstrap'
 import SelectablePlayer from '../SelectablePlayer/SelectablePlayer'
 import PlayerNamesInit from '../PlayerNamesInit/PlayerNamesInit.js'
 import './styles.css'
@@ -140,12 +140,27 @@ export default function CastlesTracker (props) {
         
     }
 
+    let endGame = () => {
+        setGame({users: game.users, state : 3})
+    }
+
     let currentScreen;
     if (game.state === 1){
         currentScreen = <Col id="nameInput1"><PlayerNamesInit numberOfPlayers={3} maxNumberOfPlayers={6}/></Col>
     } else if (game.state ===2) {
-        currentScreen = <Row><Col><SelectablePlayer playerSelected={playerClicked}/><Numberpad/></Col>
-        <Col><GameLog></GameLog></Col></Row>
+        currentScreen = (
+        <Col>
+            <Row>
+                <SelectablePlayer playerSelected={playerClicked}/>
+                <Numberpad/>
+            </Row>
+            <Row>
+                <GameLog></GameLog>
+            </Row>
+            <Row>
+                <Button variant="outlined" onClick={endGame}>Afslut Spil</Button>
+            </Row>
+        </Col>)
     } 
     
 
