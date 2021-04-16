@@ -11,16 +11,13 @@ const convertSeconds = (seconds) =>{
     if(seconds / 3600 >= 1){
         hours = true;
         timeString += `${Math.floor(seconds/3600)}t `;
-        console.log(timeString)
     }
     if(seconds / 60 >= 1) {
         let minutes = Math.floor(seconds / 60) % 60
         if(minutes !== 0 && hours)
             timeString += `${minutes}m `;
-            console.log(timeString)
     }
     timeString += `${seconds % 60}s siden`
-    console.log(timeString)
     return timeString
 }
 

@@ -3,6 +3,7 @@ import SelectablePlayer from '../SelectablePlayer/SelectablePlayer'
 import PlayerNamesInit from '../PlayerNamesInit/PlayerNamesInit.js'
 import './styles.css'
 import Numberpad from '../Numberpad/Numberpad.js'
+import Podium from '../Podium/Podium.js'
 import {useRecoilState} from 'recoil'
 import {castlesGameState} from '../../recoil/castlesGameState.js'
 import {numberpadState} from '../../recoil/numberpadState'
@@ -161,7 +162,14 @@ export default function CastlesTracker (props) {
                 <Button variant="outlined" onClick={endGame}>Afslut Spil</Button>
             </Row>
         </Col>)
-    } 
+    }  else if (game.state === 3) {
+        {console.log(`gamestate: ${game.state}`)}
+        currentScreen =(
+            <Col>
+                <Podium players={game.users}></Podium>
+            </Col>
+        )
+    }
     
 
     return (
