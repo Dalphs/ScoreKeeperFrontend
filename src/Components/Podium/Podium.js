@@ -15,25 +15,18 @@ export default function Podium (props) {
     
     let actualNumberOfRuns = 1;
     for (let i = 0; i < playersSorted.length; i++) {
-        console.log(`Yderste loop: ${i}`)
         let startIndex = i
-        console.log(`intial startIndex ${startIndex}`)
         let podiumText = `${actualNumberOfRuns}`
         let currentValue = playersSorted[i].points;
 
         
         for (let j = startIndex; j < playersSorted.length; j++) {
-            console.log(`inderste for kører til j er ${playersSorted.length} og j er ${j}`)
-            console.log(`inderste if: ${currentValue === playersSorted[j].points}`)
             if(currentValue === playersSorted[j].points){
                 podiumText += j === startIndex ? ` ${playersSorted[j].playerName}` : ` og ${playersSorted[j].playerName}`
-                console.log(`Inderste loop kører: ${j} og startIndex er ${startIndex}`)
                 if (j !== startIndex) {
-                    console.log("reached")
                     startIndex++;
                 }
             } else {
-                console.log(`Inderste loop breaker: ${j}`)
                 break
             }    
         }
@@ -57,10 +50,8 @@ export default function Podium (props) {
                <p>Hvorfor nævne noget lavere</p>
 
         }
-        console.log(`startindex for i assign ${startIndex}`)
         i = startIndex 
         actualNumberOfRuns++
-        console.log("\n")
     }
     
     
