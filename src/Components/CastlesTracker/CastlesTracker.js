@@ -23,7 +23,7 @@ export default function CastlesTracker (props) {
     useEffect(() => {
         //setGame({users: [...game.users], state : 1})
         //setLog({messages: addMessage(`Game has started`, log.messages)})
-        setGame({users: [{id:1, playerName: "Simon", points:15}, {id:2, playerName: "Sune", points:9}, {id:3, playerName: "Søren", points:25}, {id:4, playerName: "Kira", points:10}], state : 2})
+        setGame({users: [{id:1, playerName: "Simon", points:25}, {id:2, playerName: "Sune", points:10}, {id:3, playerName: "Søren", points:25}, {id:4, playerName: "Kira", points:10}], state : 2})
         setLog({messages: [
             {
                 "timestamp": 1618340696,
