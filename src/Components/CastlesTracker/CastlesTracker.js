@@ -159,11 +159,12 @@ export default function CastlesTracker (props) {
                 <GameLog></GameLog>
             </Row>
             <Row>
-                <Button variant="outlined" onClick={endGame}>Afslut Spil</Button>
+                <Col>
+                    <Button variant="outlined" onClick={endGame}>Afslut Spil</Button>
+                </Col>
             </Row>
         </Col>)
     }  else if (game.state === 3) {
-        {console.log(`gamestate: ${game.state}`)}
         currentScreen =(
             <Col>
                 <Podium players={game.users}></Podium>

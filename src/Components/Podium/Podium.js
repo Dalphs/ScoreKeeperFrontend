@@ -48,15 +48,10 @@ export default function Podium (props) {
                 break
             default:
                <p>Hvorfor nævne noget lavere</p>
-
         }
         i = startIndex 
         actualNumberOfRuns++
     }
-    
-    
-
-   
     
     return(
         <Col>{currentScreen}</Col>

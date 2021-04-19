@@ -14,6 +14,5 @@ export default function Input (props) {
 
     return(
         <TextField id="standard-basic" label={props.text} onFocus={() => props.onFocus(props.id)} onChange={onChange}/>
-        
     )
 }
