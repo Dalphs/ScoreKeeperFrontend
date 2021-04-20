@@ -23,6 +23,9 @@ export default function SelectablePlayer (props) {
                     )
                 })}
             </Row>
+            <Row><Col>
+                <ScoreInput></ScoreInput>
+            </Col></Row>
         </Container>
     )
 }

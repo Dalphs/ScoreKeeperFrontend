@@ -11,6 +11,7 @@ import {numberpadSubtractState} from '../../recoil/numberpadSubtractState.js'
 import {useEffect} from 'react'
 import GameLog from '../GameLog/GameLog.js'
 import {logState, addMessage, updateTime} from '../../recoil/logState.js'
+import {scoreInputState} from '../../recoil/scoreInputState.js'
 
 
 
@@ -19,6 +20,7 @@ export default function CastlesTracker (props) {
     const [display, setDisplay] = useRecoilState(numberpadState)
     const [numberpadSubtract] = useRecoilState(numberpadSubtractState)
     const [log, setLog] = useRecoilState(logState)
+    const [scoreInput, setScoreInput] = useRecoilState(scoreInputState)
 
     useEffect(() => {
         //setGame({users: [...game.users], state : 1})
@@ -130,10 +132,34 @@ export default function CastlesTracker (props) {
         return () => clearInterval(updateInterval);
     }, [])
 
+    let getPoints = () => {
+        let initial = scoreInput.display
+        let operatorLocations = [];
+        for (let i = 0; i < initial.length; i++) {
+            let char = initial.charAt(i)
+            if (!Number.isInteger(char)) {
+                if (char === '+' || char === '-') {
+                    operatorLocations.push(i)
+                } else {
+                    return null
+                }
+            }
+        }
+        let result = 0;
+        for (let i = 0; i < operatorLocations.length; i++) {
+            if (i === 0 && operatorLocations[0] !== 0){
+
+            } else {
+
+            }
+            
+        }
+    }
+
     let playerClicked = (id) => {
         let users = [...game.users];
         let player = {...users[id - 1]}
-        player.points = numberpadSubtract.subtract ? Number(player.points) - Number(display.display) : Number(player.points) + Number(display.display);
+        player.points = getPoints();
         setLog({messages : addMessage(`${player.playerName} ${numberpadSubtract.subtract ? "mistede": "fik"} ${display.display} point`, log.messages)});
         users[id-1] = player;
         setDisplay({display: 0})
@@ -153,7 +179,7 @@ export default function CastlesTracker (props) {
         <Col>
             <Row>
                 <SelectablePlayer playerSelected={playerClicked}/>
-                <Numberpad/>
+                {/*<Numberpad/>*/}
             </Row>
             <Row>
                 <GameLog></GameLog>
