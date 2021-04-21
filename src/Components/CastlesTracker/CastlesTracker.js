@@ -136,21 +136,33 @@ export default function CastlesTracker (props) {
         let initial = scoreInput.display
         let operatorLocations = [];
         for (let i = 0; i < initial.length; i++) {
+            console.log(`første for ${}`)
             let char = initial.charAt(i)
             if (!Number.isInteger(char)) {
                 if (char === '+' || char === '-') {
                     operatorLocations.push(i)
+                    console.log(`første for tilføjer operator fra plads ${i}`)
                 } else {
                     return null
                 }
             }
         }
+        console.log(``)
         let result = 0;
+        console.log(`operatorlocations efter for ${operatorLocations}`)
+        if (operatorLocations[0] !== 0){
+            result += initial.subStr(0, operatorLocations[0])
+            console.log(`første index var ikke en operator så resuelt er nu ${result}`)
+        }
+        if (operatorLocations[operatorLocations.length - 1]) {
+            operatorLocations.splice(operatorLocations.length - 1, 1)
+            console.log(`sidste index var ne operator så den slettes og det nye operatorlocations ser sådan ud ${operatorLocations}`)
+        }
         for (let i = 0; i < operatorLocations.length; i++) {
-            if (i === 0 && operatorLocations[0] !== 0){
-
-            } else {
-
+            if (i + 1 < operatorLocations.length) {
+//Lav metoder der plusser og minusser
+            } else  {
+                
             }
             
         }
