@@ -135,15 +135,16 @@ export default function CastlesTracker (props) {
     let getPoints = () => {
         let initial = scoreInput.display
         let operatorLocations = [];
+        console.log(`Hvad er længden? ${initial.length}`)
         for (let i = 0; i < initial.length; i++) {
-            console.log(`første for ${}`)
             let char = initial.charAt(i)
+            console.log(`første for ${char}`)
             if (!Number.isInteger(char)) {
                 if (char === '+' || char === '-') {
                     operatorLocations.push(i)
                     console.log(`første for tilføjer operator fra plads ${i}`)
                 } else {
-                    return null
+                    
                 }
             }
         }
@@ -151,21 +152,37 @@ export default function CastlesTracker (props) {
         let result = 0;
         console.log(`operatorlocations efter for ${operatorLocations}`)
         if (operatorLocations[0] !== 0){
-            result += initial.subStr(0, operatorLocations[0])
+            result += Number(initial.substring(0, operatorLocations[0]))
             console.log(`første index var ikke en operator så resuelt er nu ${result}`)
         }
-        if (operatorLocations[operatorLocations.length - 1]) {
+        if (!Number.isInteger(operatorLocations[operatorLocations.length - 1])) {
             operatorLocations.splice(operatorLocations.length - 1, 1)
             console.log(`sidste index var ne operator så den slettes og det nye operatorlocations ser sådan ud ${operatorLocations}`)
         }
         for (let i = 0; i < operatorLocations.length; i++) {
-            if (i + 1 < operatorLocations.length) {
-//Lav metoder der plusser og minusser
+            let currentNumber;
+            if (i + 1 === operatorLocations.length) {
+                currentNumber = initial.substring(operatorLocations[i] + 1, initial.length)
+                console.log("kører på sidste operator")
             } else  {
-                
+                currentNumber = initial.substring(operatorLocations[i] + 1, operatorLocations[i + 1])
+                console.log("kører på første operator")
             }
+            switch (initial.charAt(operatorLocations[i])){
+              case "+":
+                result += Number(currentNumber)
+                break;
+              case "-":
+                result -= Number(currentNumber)
+                break;
+              default:
+                console.log("default")
+
+            }
+            console.log(`Currentnumber blev sat til ${currentNumber} og result er indtil videre ${result}`)
             
         }
+        return result
     }
 
     let playerClicked = (id) => {
