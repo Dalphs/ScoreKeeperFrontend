@@ -1,5 +1,5 @@
 import {Row, Col, Container} from 'react-bootstrap'
-import {useEffect} from 'react'
+import {useRef} from 'react'
 import './styles.css'
 import {useRecoilState} from 'recoil'
 import {castlesGameState} from '../../recoil/castlesGameState.js'
@@ -35,9 +35,10 @@ const ScoreInput = (props) => {
 
     var onChange = (e) =>{
         setScoreInput({display: e.target.value})
+        console.log(`new input ${e.target.value}`)
     }
 
     return (
-        <input id="scoreInput" type="number" onChange={onChange}></input>
+        <input id="scoreInput" type="number" onChange={onChange} value={scoreInput.display}></input>
     )
 }
