@@ -189,7 +189,8 @@ export default function CastlesTracker (props) {
         let users = [...game.users];
         let player = {...users[id - 1]}
         let pointsAwarded = getPoints(); 
-        player.points += pointsAwarded
+        let currentPoints = player.points;
+        player.points = player.points + pointsAwarded < 0 ? 0 : player.points + pointsAwarded
         setLog({messages : addMessage(`${player.playerName} ${pointsAwarded < 0 ? `mistede ${pointsAwarded * -1}`: `fik ${pointsAwarded}`} point`, log.messages)});
         users[id-1] = player;
         setScoreInput({display: ""})

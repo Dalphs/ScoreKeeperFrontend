@@ -22,9 +22,10 @@ const convertSeconds = (seconds) =>{
 }
 
 export const addMessage = (message, messages) => {
-    let newMessages = [...messages]
+    let newMessages = []
     let currentTime = Math.floor(Date.now() / 1000)
     newMessages.push({timestamp: currentTime, timeString: "Ny", text: message})
+    newMessages = newMessages.concat([...messages])
     return newMessages
 }
 
