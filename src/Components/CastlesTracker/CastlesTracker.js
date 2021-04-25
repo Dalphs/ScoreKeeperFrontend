@@ -8,7 +8,7 @@ import {useRecoilState} from 'recoil'
 import {castlesGameState} from '../../recoil/castlesGameState.js'
 import {numberpadState} from '../../recoil/numberpadState'
 import {numberpadSubtractState} from '../../recoil/numberpadSubtractState.js'
-import {useEffect} from 'react'
+import {useEffect, useRef} from 'react'
 import GameLog from '../GameLog/GameLog.js'
 import {logState, addMessage, updateTime} from '../../recoil/logState.js'
 import {scoreInputState} from '../../recoil/scoreInputState.js'
@@ -17,8 +17,6 @@ import {scoreInputState} from '../../recoil/scoreInputState.js'
 
 export default function CastlesTracker (props) {
     const [game, setGame] = useRecoilState(castlesGameState)
-    const [display, setDisplay] = useRecoilState(numberpadState)
-    const [numberpadSubtract] = useRecoilState(numberpadSubtractState)
     const [log, setLog] = useRecoilState(logState)
     const [scoreInput, setScoreInput] = useRecoilState(scoreInputState)
 
@@ -132,72 +130,6 @@ export default function CastlesTracker (props) {
         return () => clearInterval(updateInterval);
     }, [])
 
-    let getPoints = () => {
-        let initial = scoreInput.display
-        let operatorLocations = [];
-        console.log(`Hvad er længden? ${initial.length}`)
-        for (let i = 0; i < initial.length; i++) {
-            let char = initial.charAt(i)
-            console.log(`første for ${char}`)
-            if (!Number.isInteger(char)) {
-                if (char === '+' || char === '-') {
-                    operatorLocations.push(i)
-                    console.log(`første for tilføjer operator fra plads ${i}`)
-                } else {
-                    
-                }
-            }
-        }
-        console.log(``)
-        let result = 0;
-        console.log(`operatorlocations efter for ${operatorLocations}`)
-        if (operatorLocations[0] !== 0){
-            result += Number(initial.substring(0, operatorLocations[0]))
-            console.log(`første index var ikke en operator så resuelt er nu ${result}`)
-        }
-        if (!Number.isInteger(operatorLocations[operatorLocations.length - 1])) {
-            operatorLocations.splice(operatorLocations.length - 1, 1)
-            console.log(`sidste index var ne operator så den slettes og det nye operatorlocations ser sådan ud ${operatorLocations}`)
-        }
-        for (let i = 0; i < operatorLocations.length; i++) {
-            let currentNumber;
-            if (i + 1 === operatorLocations.length) {
-                currentNumber = initial.substring(operatorLocations[i] + 1, initial.length)
-                console.log("kører på sidste operator")
-            } else  {
-                currentNumber = initial.substring(operatorLocations[i] + 1, operatorLocations[i + 1])
-                console.log("kører på første operator")
-            }
-            switch (initial.charAt(operatorLocations[i])){
-              case "+":
-                result += Number(currentNumber)
-                break;
-              case "-":
-                result -= Number(currentNumber)
-                break;
-              default:
-                console.log("default")
-
-            }
-            console.log(`Currentnumber blev sat til ${currentNumber} og result er indtil videre ${result}`)
-            
-        }
-        return result
-    }
-
-    let playerClicked = (id) => {
-        let users = [...game.users];
-        let player = {...users[id - 1]}
-        let pointsAwarded = getPoints(); 
-        let currentPoints = player.points;
-        player.points = player.points + pointsAwarded < 0 ? 0 : player.points + pointsAwarded
-        setLog({messages : addMessage(`${player.playerName} ${pointsAwarded < 0 ? `mistede ${pointsAwarded * -1}`: `fik ${pointsAwarded}`} point`, log.messages)});
-        users[id-1] = player;
-        setScoreInput({display: ""})
-        setGame({state: game.state, users : users});
-        
-    }
-
     let endGame = () => {
         setGame({users: game.users, state : 3})
     }
@@ -209,7 +141,7 @@ export default function CastlesTracker (props) {
         currentScreen = (
         <Col>
             <Row>
-                <SelectablePlayer playerSelected={playerClicked}/>
+                <SelectablePlayer/>
                 {/*<Numberpad/>*/}
             </Row>
             <Row>
