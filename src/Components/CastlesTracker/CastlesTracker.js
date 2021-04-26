@@ -21,9 +21,9 @@ export default function CastlesTracker (props) {
     const [scoreInput, setScoreInput] = useRecoilState(scoreInputState)
 
     useEffect(() => {
-        //setGame({users: [...game.users], state : 1})
-        //setLog({messages: addMessage(`Game has started`, log.messages)})
-        setGame({users: [{id:1, playerName: "Simon", points:25}, {id:2, playerName: "Sune", points:10}, {id:3, playerName: "Søren", points:25}, {id:4, playerName: "Kira", points:10}], state : 2})
+        setGame({users: [...game.users], state : 1})
+        setLog({messages: addMessage(`Game has started`, log.messages)})
+        /*setGame({users: [{id:1, playerName: "Simon", points:25}, {id:2, playerName: "Sune", points:10}, {id:3, playerName: "Søren", points:25}, {id:4, playerName: "Kira", points:10}], state : 2})
         setLog({messages: [
             {
                 "timestamp": 1618340696,
@@ -120,7 +120,7 @@ export default function CastlesTracker (props) {
                 "timeString": "Ny",
                 "text": "Simon fik 1 point"
             }
-        ]})
+        ]})*/
         
         const updateInterval = setInterval(() => {
             setLog(prev => {
@@ -155,9 +155,7 @@ export default function CastlesTracker (props) {
         </Col>)
     }  else if (game.state === 3) {
         currentScreen =(
-            <Col>
-                <Podium players={game.users}></Podium>
-            </Col>
+            <Podium players={game.users}></Podium>
         )
     }
     

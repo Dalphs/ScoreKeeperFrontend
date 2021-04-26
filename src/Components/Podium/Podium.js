@@ -1,15 +1,16 @@
-import {Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col, Button} from 'react-bootstrap';
 import {useRecoilState} from 'recoil';
 import './styles.css'
 import {castlesGameState, updateElement} from '../../recoil/castlesGameState.js'
-import {Button, ClickAwayListener} from '@material-ui/core' 
 import {useEffect} from 'react'
+import {logState, addMessage} from '../../recoil/logState.js'
 
 export default function Podium (props) {
 
-    let currentScreen = [];
+    const [game, setGame] = useRecoilState(castlesGameState);
+    const [log, setLog] = useRecoilState(logState);
 
-    
+    let currentScreen = [];
     let players = [...props.players];
     let playersSorted= players.sort(function(x,y){return y["points"]-x["points"]});
     
@@ -52,8 +53,20 @@ export default function Podium (props) {
         i = startIndex 
         actualNumberOfRuns++
     }
+
+    const startNewGame = () => {
+        setGame({users: [...game.users], state : 1})
+        setLog({messages: addMessage(`Game has started`, [])})
+    }
     
     return(
-        <Col>{currentScreen}</Col>
+        <Container>
+            <Row>
+                <Col>{currentScreen}</Col>
+            </Row>
+            <Row>
+                <Col><Button variant="outlined" onClick={startNewGame}>Start nyt</Button></Col>
+            </Row>
+        </Container>
     )
 }
