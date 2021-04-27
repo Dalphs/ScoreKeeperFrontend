@@ -54,18 +54,12 @@ export default function Podium (props) {
         actualNumberOfRuns++
     }
 
-    const startNewGame = () => {
-        setGame({users: [...game.users], state : 1})
-        setLog({messages: addMessage(`Game has started`, [])})
-    }
+    
     
     return(
         <Container>
             <Row>
                 <Col>{currentScreen}</Col>
-            </Row>
-            <Row>
-                <Col><Button variant="outlined" onClick={startNewGame}>Start nyt</Button></Col>
             </Row>
         </Container>
     )
