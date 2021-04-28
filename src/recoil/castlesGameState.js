@@ -5,6 +5,7 @@ export const castlesGameState = atom({
     default:{users:[], state: null} //User: {id, points, playerName}
 })
 
+//updates an element with the corresponding key, and works dynamiccaly on all key value pairs
 export const updateElement = (elements, element) =>{
     let newElements = [];
     let playerFound = false;

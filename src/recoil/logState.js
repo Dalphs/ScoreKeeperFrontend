@@ -5,6 +5,7 @@ export const logState = atom({
     default:{messages:[]} //{timestamp, timestring, text}
 })
 
+//Takes X seconds and converts to X seconds, x minutes, x hours as a string
 const convertSeconds = (seconds) =>{
     let timeString = "";
     let hours = false;
@@ -29,8 +30,8 @@ export const addMessage = (message, messages) => {
     return newMessages
 }
 
+//Updates how long it has been since the message was created
 export const updateTime = (messages) =>{
-    console.log(messages)
     let unixSeconds = Math.floor(Date.now() / 1000)
     let oldMessages = [...messages]
     let newMessages = []

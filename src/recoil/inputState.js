@@ -2,7 +2,7 @@ import {atom} from 'recoil';
 
 export const inputState = atom({
     key: "inputState",
-    default:[]
+    default:[] //[{id}]
 })
 
 export const addInput = (elements, id) => {
