@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import Banner from './Components/Banner/Banner.js'
-import CastlesTracker from './Components/CastlesTracker/CastlesTracker.js'
+import Dashboard from './Components/Dashboard/Dashboard.js'
 import {castlesGameState} from './recoil/castlesGameState.js'
 import {inputState} from './recoil/inputState.js'
 import {numberpadState} from './recoil/numberpadState.js'
@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <Banner></Banner>
-      {true ? <div>
+      {false ? <div>
                 <button onClick={logCastlesState}>Log game</button>
                 <button onClick={logInputState}>Log inputs</button>
                 <button onClick={logNumberpadState}>Log numberpad</button>
@@ -47,7 +47,7 @@ function App() {
         : false}
       
       
-      <CastlesTracker/>
+      <Dashboard/>
     </div>
     
   );
