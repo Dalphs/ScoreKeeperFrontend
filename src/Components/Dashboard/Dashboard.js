@@ -1,29 +1,24 @@
-import {Container, Row, Col, Button} from 'react-bootstrap';
-import {useRecoilState} from 'recoil';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import { useRecoilState } from 'recoil';
 import './styles.css'
-import {currentScreenState} from '../../recoil/currentScreenState.js'
-import {useEffect} from 'react'
+import { useEffect } from 'react'
 import CastlesTracker from './../CastlesTracker/CastlesTracker.js'
 
 
-export default function Dashboard (props) {
+export default function Dashboard(props) {
 
-    const [currentScreen, setCurrentScreen] = useRecoilState(currentScreenState);
-    
+
+    const gamesAvailable = [{ Name: "Castles", picture: "https://i.ytimg.com/vi/8RZ58y8wYhs/hqdefault.jpg" }]
+
     //useEffect( () => {setCurrentScreen({currentScreen:"Castles"})}, [])
-    
-    return(
+
+    return (
         <Container>
             <Row>
                 <Col>
-                {(() => {
-                    let screen = currentScreen.currentScreen
-                    if (screen === "Dashboard") {
-                        return (<h1>DASHBOARD</h1>)
-                    } else if (screen === "Castles") {
-                        return <CastlesTracker/>
-                    }
-                })()}
+                    {gamesAvailable.map((game, i) => {
+                        <GameCard name={game.name} picture={game.picture}></GameCard>
+                    })}
                 </Col>
             </Row>
         </Container>
