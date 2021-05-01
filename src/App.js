@@ -10,7 +10,8 @@ import { numberpadSubtractState } from './recoil/numberpadSubtractState.js'
 import { logState } from './recoil/logState.js'
 import Button from 'react-bootstrap/Button'
 import { useRecoilState } from 'recoil';
-import { currentScreenState } from '../../recoil/currentScreenState.js'
+import { currentScreenState } from './recoil/currentScreenState.js'
+import CastlesTracker from './Components/CastlesTracker/CastlesTracker.js'
 
 function App() {
   const [currentScreen, setCurrentScreen] = useRecoilState(currentScreenState);
@@ -48,7 +49,7 @@ function App() {
       </div>
         : false}
       {(() => {
-        let screen = currentScreen.currentScreen
+        let screen = currentScreen.screen
         if (screen === "Dashboard") {
           return <Dashboard />
         } else if (screen === "Castles") {

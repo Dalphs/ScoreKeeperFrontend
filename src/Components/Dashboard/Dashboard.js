@@ -2,13 +2,13 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useRecoilState } from 'recoil';
 import './styles.css'
 import { useEffect } from 'react'
-import CastlesTracker from './../CastlesTracker/CastlesTracker.js'
+import GameCard from './../GameCard/GameCard.js'
 
 
 export default function Dashboard(props) {
 
 
-    const gamesAvailable = [{ Name: "Castles", picture: "https://i.ytimg.com/vi/8RZ58y8wYhs/hqdefault.jpg" }]
+    const gamesAvailable = [{ name: "Castles", picture: "https://i.ytimg.com/vi/8RZ58y8wYhs/hqdefault.jpg" }]
 
     //useEffect( () => {setCurrentScreen({currentScreen:"Castles"})}, [])
 
@@ -16,9 +16,7 @@ export default function Dashboard(props) {
         <Container>
             <Row>
                 <Col>
-                    {gamesAvailable.map((game, i) => {
-                        <GameCard name={game.name} picture={game.picture}></GameCard>
-                    })}
+                    <GameCard name="Castles" picture="https://i.ytimg.com/vi/8RZ58y8wYhs/hqdefault.jpg"></GameCard>
                 </Col>
             </Row>
         </Container>

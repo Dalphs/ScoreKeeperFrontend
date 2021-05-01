@@ -1,0 +1,10 @@
+.class {
+    object-fit: cover;
+    min-width: 21em;
+    min-height: 14em;
+}
+
+.cardTitle {
+    font-size: 4rem;
+    color:#FFF;
+}
