@@ -6,18 +6,14 @@ import GameCard from './../GameCard/GameCard.js'
 
 
 export default function Dashboard(props) {
-
-
-    const gamesAvailable = [{ name: "Castles", picture: "https://i.ytimg.com/vi/8RZ58y8wYhs/hqdefault.jpg" }]
-
-    //useEffect( () => {setCurrentScreen({currentScreen:"Castles"})}, [])
+    const gamesAvailable = [{ name: "Castles", picture: "https://source.unsplash.com/random" }, { name: "Castles", picture: "https://source.unsplash.com/random" }, { name: "Castles", picture: "https://source.unsplash.com/random" }]
 
     return (
         <Container>
             <Row>
-                <Col>
-                    <GameCard name="Castles" picture="https://i.ytimg.com/vi/8RZ58y8wYhs/hqdefault.jpg"></GameCard>
-                </Col>
+                {gamesAvailable.map( (game, i) => (
+                    <GameCard name={game.name} picture={game.picture}></GameCard>
+                ))}
             </Row>
         </Container>
     )

@@ -14,7 +14,7 @@ export default function GameCard(props) {
     }
 
     return (
-        <div class="card" onClick={() => gameSelected(props.title)} style={{backgroundImage: `url(${props.picture})`}}>
+        <div class="card" onClick={() => gameSelected(props.name)} style={{backgroundImage: `url(${props.picture})`}}>
             <p class="cardTitle">{props.name}</p>
         </div>
     )

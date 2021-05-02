@@ -1,12 +1,20 @@
 import {Row, Col, Container} from 'react-bootstrap'
+import { useRecoilState } from 'recoil';
 import './styles.css'
+import { currentScreenState } from '../../recoil/currentScreenState.js'
+import DashboardIcon from '../../assets/svg/dashboard.svg'
 
 
 export default function Banner (props) {
+    const [currentScreen, setCurrentScreen] = useRecoilState(currentScreenState);
+    const dashboardIconClicked = () =>{
+        setCurrentScreen({screen: "Dashboard"})
+    }
+
     return (
         <Container className="bannerContainer">
          <Row>
-            <Col xs={2}></Col>
+            <Col xs={2} className="my-auto"><img className="icon" src={DashboardIcon} onClick={dashboardIconClicked}></img></Col>
             <Col>
                 <h1>ScoreKeeper</h1>
             </Col>
