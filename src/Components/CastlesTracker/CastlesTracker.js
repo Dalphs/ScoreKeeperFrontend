@@ -2,27 +2,22 @@ import { Row, Col, Container, Button } from 'react-bootstrap'
 import SelectablePlayer from '../SelectablePlayer/SelectablePlayer'
 import PlayerNamesInit from '../PlayerNamesInit/PlayerNamesInit.js'
 import './styles.css'
-import Numberpad from '../Numberpad/Numberpad.js'
 import Podium from '../Podium/Podium.js'
 import { useRecoilState } from 'recoil'
 import { castlesGameState } from '../../recoil/castlesGameState.js'
-import { numberpadState } from '../../recoil/numberpadState'
-import { numberpadSubtractState } from '../../recoil/numberpadSubtractState.js'
 import { useEffect, useRef } from 'react'
 import GameLog from '../GameLog/GameLog.js'
-import { logState, addMessage, updateTime } from '../../recoil/logState.js'
-import { scoreInputState } from '../../recoil/scoreInputState.js'
+import { logState, addMessage, updateTime, initialMessage } from '../../recoil/logState.js'
 
 
 
 export default function CastlesTracker(props) {
     const [game, setGame] = useRecoilState(castlesGameState)
     const [log, setLog] = useRecoilState(logState)
-    const [scoreInput, setScoreInput] = useRecoilState(scoreInputState)
 
     useEffect(() => {
         setGame({ users: [...game.users], state: 1 })
-        setLog({ messages: addMessage(`Game has started`, log.messages) })
+        setLog({ messages: initialMessage() })
 
         //Updates times in gamelog every 10 seconds. To avoid looping prev is used to get the last times vs. the current"
         const updateInterval = setInterval(() => {

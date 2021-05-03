@@ -8,6 +8,19 @@ h1 {
 }
 
 .icon {
-    width: 2rem;
+    width:1.5rem;
+    height:1.5rem;
     cursor: pointer;
+    vertical-align: baseline;
+}
+
+.iconContainer {
+    padding: 0.5rem;
+    margin-right: 1em;
+    border-radius: 5em;
+    height:2.5rem;
+}
+
+.iconContainer:hover {
+    background: var(--secondary);
 }

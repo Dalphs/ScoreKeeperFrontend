@@ -30,6 +30,13 @@ export const addMessage = (message, messages) => {
     return newMessages
 }
 
+export const initialMessage =  () => {
+    let newMessages = []
+    let currentTime = Math.floor(Date.now() / 1000)
+    newMessages.push({timestamp: currentTime, timeString: "Ny", text: `Game has started`})
+    return newMessages
+}
+
 //Updates how long it has been since the message was created
 export const updateTime = (messages) =>{
     let unixSeconds = Math.floor(Date.now() / 1000)

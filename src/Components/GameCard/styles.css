@@ -4,9 +4,30 @@
     min-height: 14em; 
     background-repeat: no-repeat;
     background-size: cover;
+    background-size: contain;
 }
 
 .cardTitle {
     font-size: 4rem;
     color:#FFF;
+    position:absolute;
+    bottom: 0.1em;
+    left: 0.1em;
+    margin-bottom:0px;
+}
+
+.gameCard {
+    margin:2em 1em;
+    cursor: pointer;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 0.5em;
+    position: relative;
+    min-width: 20em;
+    min-height: 10em;
+}
+
+.spaceBetween {
+    display:flex;
+    justify-content: space-around;
 }
