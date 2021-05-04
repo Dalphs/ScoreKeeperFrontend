@@ -10,7 +10,6 @@ h1 {
 .icon {
     width:1.5rem;
     height:1.5rem;
-    cursor: pointer;
     vertical-align: baseline;
 }
 
@@ -19,6 +18,7 @@ h1 {
     margin-right: 1em;
     border-radius: 5em;
     height:2.5rem;
+    cursor: pointer;
 }
 
 .iconContainer:hover {

@@ -16,6 +16,18 @@
     margin-bottom:0px;
 }
 
+.cardTitle::after {
+    content:'';
+    height: 3px;
+    width: 100%;
+    background: white;
+    display:block;
+    border-radius: 3px;
+    position:absolute;
+    bottom: 0.1em;
+    left: 0.1em;
+}
+
 .gameCard {
     margin:2em 1em;
     cursor: pointer;
