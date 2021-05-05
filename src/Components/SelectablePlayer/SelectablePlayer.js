@@ -2,9 +2,9 @@ import { Row, Col, Container } from 'react-bootstrap'
 import { useRef, useEffect } from 'react'
 import './styles.css'
 import { useRecoilState } from 'recoil'
-import { castlesGameState } from '../../recoil/castlesGameState.js'
-import { scoreInputState } from '../../recoil/scoreInputState.js'
-import { logState, addMessage } from '../../recoil/logState.js'
+import { castlesGameState } from '@recoil/castlesGameState.js'
+import { scoreInputState } from '@recoil/scoreInputState.js'
+import { logState, addMessage } from '@recoil/logState.js'
 
 
 export default function SelectablePlayer(props) {

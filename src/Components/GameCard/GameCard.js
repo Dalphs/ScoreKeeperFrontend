@@ -2,7 +2,7 @@
 import { useRecoilState } from 'recoil';
 import './styles.css'
 import { useEffect } from 'react'
-import { currentScreenState } from '../../recoil/currentScreenState.js'
+import { currentScreenState } from '@recoil/currentScreenState.js'
 
 
 export default function GameCard(props) {

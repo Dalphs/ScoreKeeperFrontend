@@ -1,7 +1,7 @@
 import TextField from '@material-ui/core/TextField';
 import {useRecoilState} from 'recoil';
 import './styles.css'
-import {castlesGameState, updateElement} from '../../../recoil/castlesGameState.js'
+import {castlesGameState, updateElement} from '@recoil/castlesGameState.js'
 
 export default function Input (props) {
 

@@ -1,6 +1,6 @@
 import {useRecoilState} from 'recoil';
 import './styles.css'
-import {logState, updateLog} from '../../recoil/logState.js'
+import {logState} from '@recoil/logState.js'
 
 export default function GameLog (props) {
 

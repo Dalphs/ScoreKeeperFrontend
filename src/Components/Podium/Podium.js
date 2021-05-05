@@ -1,9 +1,8 @@
-import {Container, Row, Col, Button} from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
 import {useRecoilState} from 'recoil';
 import './styles.css'
-import {castlesGameState, updateElement} from '../../recoil/castlesGameState.js'
-import {useEffect} from 'react'
-import {logState, addMessage} from '../../recoil/logState.js'
+import {castlesGameState} from '@recoil/castlesGameState.js'
+import {logState} from '@recoil/logState.js'
 
 export default function Podium (props) {
 

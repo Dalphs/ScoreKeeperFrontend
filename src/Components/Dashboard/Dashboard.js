@@ -1,8 +1,6 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { useRecoilState } from 'recoil';
 import './styles.css'
-import { useEffect } from 'react'
-import GameCard from './../GameCard/GameCard.js'
+import GameCard from '@components/GameCard/GameCard.js'
 
 
 export default function Dashboard(props) {
