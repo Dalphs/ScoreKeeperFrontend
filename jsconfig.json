@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "jsx": "react",
+      "paths": {
+        "@components": ["Components"],
+        "@recoil" : ["recoil"],
+        "@assets" : ["assets"]
+      }
+    }
+  }

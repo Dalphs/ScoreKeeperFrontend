@@ -1,13 +1,13 @@
 import { Row, Col, Container, Button } from 'react-bootstrap'
-import SelectablePlayer from '../SelectablePlayer/SelectablePlayer'
-import PlayerNamesInit from '../PlayerNamesInit/PlayerNamesInit.js'
+import SelectablePlayer from '@components/SelectablePlayer/SelectablePlayer'
+import PlayerNamesInit from '@components/PlayerNamesInit/PlayerNamesInit.js'
 import './styles.css'
-import Podium from '../Podium/Podium.js'
+import Podium from '@components/Podium/Podium.js'
 import { useRecoilState } from 'recoil'
-import { castlesGameState } from '../../recoil/castlesGameState.js'
+import { castlesGameState } from '@recoil/castlesGameState.js'
 import { useEffect, useRef } from 'react'
-import GameLog from '../GameLog/GameLog.js'
-import { logState, addMessage, updateTime, initialMessage } from '../../recoil/logState.js'
+import GameLog from '@components/GameLog/GameLog.js'
+import { logState, addMessage, updateTime, initialMessage } from '@recoil/logState.js'
 
 
 
