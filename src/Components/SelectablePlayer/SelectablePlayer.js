@@ -19,12 +19,14 @@ export default function SelectablePlayer(props) {
     }, [])
 
     var onChange = (e) => {
+        console.log(e.target.value)
         setScoreInput({ display: e.target.value })
 
     }
 
     let getPoints = () => {
         let initial = scoreInput.display
+        console.log(initial)
         let operatorLocations = [];
 
         for (let i = 0; i < initial.length; i++) {
