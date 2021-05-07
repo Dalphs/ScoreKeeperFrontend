@@ -18,12 +18,6 @@ export default function SelectablePlayer(props) {
         inputRef.current.focus()
     }, [])
 
-    var onChange = (e) => {
-        console.log(e.target.value)
-        setScoreInput({ display: e.target.value })
-
-    }
-
     let getPoints = () => {
         let initial = scoreInput.display
         console.log(initial)
@@ -78,6 +72,16 @@ export default function SelectablePlayer(props) {
         return result
     }
 
+    
+
+    var onChange = (e) => {
+        const reg = /^[\d +-]+$/
+        if(e.target.value === '' || reg.test(e.target.value)){
+            setScoreInput({ display: e.target.value })
+        }
+
+    }
+
     let playerSelected = (id) => {
         let users = [...game.users];
         let player = { ...users[id - 1] }
@@ -105,7 +109,7 @@ export default function SelectablePlayer(props) {
                 })}
             </Row>
             <Row><Col>
-                <input ref={inputRef} id="scoreInput" type="number" onChange={onChange} value={scoreInput.display}></input>
+                <input ref={inputRef} id="scoreInput" inputMode="numeric" onChange={onChange} value={scoreInput.display}></input>
             </Col></Row>
         </Container>
     )
