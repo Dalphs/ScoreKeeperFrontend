@@ -5,7 +5,11 @@
       "paths": {
         "@components": ["Components"],
         "@recoil" : ["recoil"],
-        "@assets" : ["assets"]
+        "@assets" : ["Components/Assets"],
+        "@banner" : ["Components/Banner"],
+        "@castles" : ["Components/Castles"],
+        "@shared" : ["Components/Shared"],
+        "@dashboard" : ["Components/Dashboard"]
       }
     }
   }

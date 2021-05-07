@@ -15,7 +15,7 @@ const convertSeconds = (seconds) =>{
     }
     if(seconds / 60 >= 1) {
         let minutes = Math.floor(seconds / 60) % 60
-        if(minutes !== 0 && hours)
+        if(minutes !== 0)
             timeString += `${minutes}m `;
     }
     timeString += `${seconds % 60}s siden`

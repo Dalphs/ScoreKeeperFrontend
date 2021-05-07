@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import './styles.css'
-import GameCard from '@components/GameCard/GameCard.js'
+import GameCard from '@dashboard/GameCard/GameCard.js'
 
 
 export default function Dashboard(props) {

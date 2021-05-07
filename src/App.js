@@ -9,7 +9,7 @@ import { logState } from './recoil/logState.js'
 import { useRecoilState } from 'recoil';
 import { currentScreenState } from './recoil/currentScreenState.js'
 import { scoreInputState } from './recoil/scoreInputState.js'
-import CastlesTracker from './Components/CastlesTracker/CastlesTracker.js'
+import CastlesTracker from './Components/Castles/Castles.js'
 
 function App() {
   const [currentScreen, setCurrentScreen] = useRecoilState(currentScreenState);

@@ -1,6 +1,6 @@
 import {Row, Col, Container, Button} from 'react-bootstrap'
 import './styles.css'
-import Input from '@components/StandardElements/Input/Input.js'
+import Input from '@shared/Input/Input.js'
 import {useRecoilState} from 'recoil'
 import {inputState, addInput, updateElement} from '@recoil/inputState.js'
 import {castlesGameState} from '@recoil/castlesGameState.js'

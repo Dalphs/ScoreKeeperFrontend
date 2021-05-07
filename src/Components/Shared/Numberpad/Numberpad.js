@@ -1,9 +1,9 @@
 import {Container, Row, Col} from 'react-bootstrap';
 import {useRecoilState} from 'recoil';
 import './styles.css'
-import {castlesGameState, updateElement} from '../../recoil/castlesGameState.js'
-import {numberpadState} from '../../recoil/numberpadState.js'
-import {numberpadSubtractState} from '../../recoil/numberpadSubtractState.js'
+import {castlesGameState, updateElement} from '../../../recoil/castlesGameState.js'
+import {numberpadState} from '../../../recoil/numberpadState.js'
+import {numberpadSubtractState} from '../../../recoil/numberpadSubtractState.js'
 import {Button} from '@material-ui/core' 
 
 export default function Numberpad (props) {

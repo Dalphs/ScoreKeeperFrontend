@@ -1,7 +1,10 @@
 const aliases = (prefix = 'src') => ({
-    '@components' : `${prefix}/Components`,
     '@recoil' : `${prefix}/recoil`,
-    '@assets' : `${prefix}/assets`
+    '@assets' : `${prefix}/assets`,
+    '@castles' : `${prefix}/Components/Castles`,
+    '@banner' : `${prefix}/Components/Banner`,
+    '@dashboard' : `${prefix}/Components/Dashboard`,
+    '@shared' : `${prefix}/Components/Shared`
 })
 
 module.exports = aliases;
