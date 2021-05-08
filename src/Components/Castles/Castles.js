@@ -11,7 +11,7 @@ import { logState, addMessage, updateTime, initialMessage } from '@recoil/logSta
 
 
 
-export default function CastlesTracker(props) {
+export default function Castles(props) {
     const [game, setGame] = useRecoilState(castlesGameState)
     const [log, setLog] = useRecoilState(logState)
 

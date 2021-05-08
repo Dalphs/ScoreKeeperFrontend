@@ -1,18 +1,19 @@
-import logo from './logo.svg';
+import { useRecoilState } from 'recoil';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
 import './App.css';
 import Banner from './Components/Banner/Banner.js'
 import Dashboard from './Components/Dashboard/Dashboard.js'
+import Castles from './Components/Castles/Castles.js'
+
 import { castlesGameState } from './recoil/castlesGameState.js'
 import { inputState } from './recoil/inputState.js'
 import { logState } from './recoil/logState.js'
-import { useRecoilState } from 'recoil';
-import { currentScreenState } from './recoil/currentScreenState.js'
 import { scoreInputState } from './recoil/scoreInputState.js'
-import CastlesTracker from './Components/Castles/Castles.js'
+
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useRecoilState(currentScreenState);
   const [game] = useRecoilState(castlesGameState);
   const [input] = useRecoilState(inputState)
   const [scoreInput, setScoreInput] = useRecoilState(scoreInputState)
@@ -33,22 +34,21 @@ function App() {
 
   return (
     <div className="App">
-      <Banner></Banner>
-      {true ? <div>
-        <button onClick={logCastlesState}>Log game</button>
-        <button onClick={logInputState}>Log inputs</button>
-        <button onClick={logLogState}>Log log</button>
-        <button onClick={logScoreInput}>Log input</button>
-      </div>
-        : false}
-      {(() => {
-        let screen = currentScreen.screen
-        if (screen === "Dashboard") {
-          return <Dashboard />
-        } else if (screen === "Castles") {
-          return <CastlesTracker />
-        }
-      })()}
+      <Router>
+        <Banner></Banner>
+        {true ? <div>
+          <button onClick={logCastlesState}>Log game</button>
+          <button onClick={logInputState}>Log inputs</button>
+          <button onClick={logLogState}>Log log</button>
+          <button onClick={logScoreInput}>Log input</button>
+        </div>
+          : false}
+
+          <Switch>
+            <Route path="/castles" component={Castles}></Route>  
+            <Route path="/" component={Dashboard}></Route>
+          </Switch>
+      </Router>
     </div>
 
   );

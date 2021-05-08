@@ -1,15 +1,11 @@
 import {Row, Col, Container} from 'react-bootstrap'
-import { useRecoilState } from 'recoil';
+import {Link} from 'react-router-dom';
 import './styles.css'
-import { currentScreenState } from '@recoil/currentScreenState.js'
 import DashboardIcon from '@assets/svg/dashboard.svg'
 
 
 export default function Banner (props) {
-    const [currentScreen, setCurrentScreen] = useRecoilState(currentScreenState);
-    const dashboardIconClicked = () =>{
-        setCurrentScreen({screen: "Dashboard"})
-    }
+    
 
     return (
         <Container className="bannerContainer">
@@ -18,7 +14,7 @@ export default function Banner (props) {
             <Col>
                 <h1>ScoreKeeper</h1>
             </Col>
-            <Col xs={2} className="my-auto d-flex justify-content-end" onClick={dashboardIconClicked}><div className="iconContainer"><img className="icon" src={DashboardIcon}></img></div></Col>
+            <Col xs={2} className="my-auto d-flex justify-content-end"><Link to="/" className="iconContainer"><img className="icon" src={DashboardIcon}></img></Link></Col>
         </Row>
         </Container>
     )
