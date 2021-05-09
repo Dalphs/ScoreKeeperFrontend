@@ -9,7 +9,8 @@
         "@banner" : ["Components/Banner"],
         "@castles" : ["Components/Castles"],
         "@shared" : ["Components/Shared"],
-        "@dashboard" : ["Components/Dashboard"]
+        "@dashboard" : ["Components/Dashboard"],
+        "@priatewhist" : ["Components/PirateWhist"]
       }
     }
   }

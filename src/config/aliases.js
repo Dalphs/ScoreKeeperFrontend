@@ -4,7 +4,8 @@ const aliases = (prefix = 'src') => ({
     '@castles' : `${prefix}/Components/Castles`,
     '@banner' : `${prefix}/Components/Banner`,
     '@dashboard' : `${prefix}/Components/Dashboard`,
-    '@shared' : `${prefix}/Components/Shared`
+    '@shared' : `${prefix}/Components/Shared`,
+    '@piratewhist' : `${prefix}/Components/PirateWhist`
 })
 
 module.exports = aliases;

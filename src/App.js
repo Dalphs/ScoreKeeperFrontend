@@ -7,6 +7,8 @@ import Banner from './Components/Banner/Banner.js'
 import Dashboard from './Components/Dashboard/Dashboard.js'
 import Castles from './Components/Castles/Castles.js'
 
+import PirateWhist from './Components/PirateWhist/PirateWhist'
+
 import { castlesGameState } from './recoil/castlesGameState.js'
 import { inputState } from './recoil/inputState.js'
 import { logState } from './recoil/logState.js'
@@ -46,6 +48,7 @@ function App() {
 
           <Switch>
             <Route path="/castles" component={Castles}></Route>  
+            <Route path="/piratwhist" component={PirateWhist}></Route>
             <Route path="/" component={Dashboard}></Route>
           </Switch>
       </Router>
