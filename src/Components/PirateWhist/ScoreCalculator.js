@@ -1,11 +1,11 @@
 
-// test JSON {round:"Uden Stik",
+// test JSON {round:"Kabale",
 // players: [
-// {playerName : "Søren", numberOfNegativeEvents : 4, currentPoints: 1.25},
-// {playerName : "Mor", numberOfNegativeEvents : 1, currentPoints: 1},
-// {playerName : "Far", numberOfNegativeEvents : 2, currentPoints: 0},
-// {playerName : "Simon", numberOfNegativeEvents : 6, currentPoints: 1}
-// ]}
+//     {playerName : "Søren", numberOfNegativeEvents : 4, currentPoints: 1.25, placement: 1},
+//     {playerName : "Mor", numberOfNegativeEvents : 1, currentPoints: 1, placement: 2},
+//     {playerName : "Far", numberOfNegativeEvents : 2, currentPoints: 0, placement: 3},
+//     {playerName : "Simon", numberOfNegativeEvents : 6, currentPoints: 1, placement: 4}
+//     ]}
 
 function getScore (round) {//{round:"uden stik", players: [player1, 2, 3, 4] => player{numberOfnegativeEvents: 4 OR placement, name, currentPoints}}
     let newRound = {...round}
