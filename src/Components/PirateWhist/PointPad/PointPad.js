@@ -1,28 +1,49 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Row, Col, Container, Button } from 'react-bootstrap'
-import {useRecoilState} from 'recoil';
-import {pirateWhistState} from '@recoil/pirateWhistState.js'
 import './styles.css'
 
 function PointPad(props) {
-    const [pirateWhist, setPirateWhist] = useRecoilState(pirateWhistState)
 
-    useEffect(() => {
-        pirateWhist.setPirateWhist({players: [props.players]})    
-    }, [])
-
+    getRoundComponent = (round) =>{
+        switch(round) {
+            case "Minus stik" : 
+            case "Minus klør" :
+                return <TricksOrClubs type={round === "Minus stik" ? "tricks" : "clubs"}></TricksOrClubs>
+            case "Minus damer" :
+            case "Klør konge" :
+                return <LadiesOrKing type={round === "Minus damer" ? "damer" : "konge"}></LadiesOrKing>
+            case "Super runde" :
+                return <SuperRound></SuperRound>
+            case "Solitaire" : 
+                return <Solitaire></Solitaire>
+        }
+    } 
 
     return (
         <Container>
             <Row>
                 <Col>
                     <table>
-                        <tr className="gameHead">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        {props.games.map((game) => {
+                            return (
+                                <React.Fragment>
+                                    <tr>
+                                        {props.players.map((player) => {
+                                            return (
+                                                <th>player</th>
+                                            )
+                                        })}
+
+                                    </tr>
+                                    {game.rounds.map((round) => {
+                                        return (
+                                                {getRoundComponent(round)}
+                                    )
+                                    })}
+                                </React.Fragment>
+
+                            )
+                        })}
                     </table>
                 </Col>
             </Row>
