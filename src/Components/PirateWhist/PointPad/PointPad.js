@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
 import { Row, Col, Container, Button } from 'react-bootstrap'
 import './styles.css'
+import TricksOrClubs from '@piratewhist/rounds/TricksOrClubs'
+import LadiesOrKing from '@piratewhist/rounds/LadiesOrKing'
+import SuperRound from '@piratewhist/rounds/SuperRound'
+import Solitaire from '@piratewhist/rounds/Solitaire'
 
 function PointPad(props) {
 
-    getRoundComponent = (round) =>{
+    let getRoundComponent = (round) =>{
         switch(round) {
             case "Minus stik" : 
             case "Minus klør" :
@@ -30,15 +34,18 @@ function PointPad(props) {
                                     <tr>
                                         {props.players.map((player) => {
                                             return (
-                                                <th>player</th>
+                                                <th>{player}</th>
                                             )
                                         })}
 
                                     </tr>
                                     {game.rounds.map((round) => {
-                                        return (
-                                                {getRoundComponent(round)}
-                                    )
+                                        return(
+                                            <tr>
+                                                {getRoundComponent(round.name)}
+                                            </tr>
+                                        )
+                                       
                                     })}
                                 </React.Fragment>
 

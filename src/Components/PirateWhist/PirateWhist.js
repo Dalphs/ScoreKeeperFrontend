@@ -2,6 +2,7 @@ import { Row, Col, Container, Button } from 'react-bootstrap'
 import React, {useEffect} from 'react';
 import {useRecoilState} from 'recoil';
 import {pirateWhistState} from '@recoil/pirateWhistState.js'
+import PointPad from './PointPad/PointPad'
 
 
 export default function PirateWhist (props) {
@@ -11,14 +12,14 @@ export default function PirateWhist (props) {
     useEffect(() => {
         const newObject = {...pirateWhist}
         newObject.players = props.players
-        pirateWhist.setPirateWhist(newObject)    
+        setPirateWhist(newObject)    
     }, [])
 
     return (
         <Container>
             <Row>
                 <Col id="nameInput1">
-                    <h1>VIRKER</h1>
+                    <PointPad></PointPad>
                 </Col>
             </Row>
         </Container>
