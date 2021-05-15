@@ -3,7 +3,7 @@ import React from 'react';
 function SuperRound(props) {
     return (
         <div>
-            <h1>Superround</h1>
+            <h1>Super runde</h1>
         </div>
     );
 }

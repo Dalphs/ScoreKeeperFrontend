@@ -24,9 +24,7 @@ function PointPad(props) {
                                     </tr>
                                     {game.rounds.map((round) => {
                                         return(
-                                            <tr>
                                                 <ScoreLine round={round}></ScoreLine>
-                                            </tr>
                                         )
                                        
                                     })}
