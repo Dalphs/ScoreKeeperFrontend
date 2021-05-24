@@ -8,13 +8,13 @@ function PointPad(props) {
 
     return (
         <Container>
-            <Row>
-                <Col>
+            <Row className="justify-content-md-center">
+                <div className="df-jcc">
                     <table>
                         {props.games.map((game) => {
                             return (
                                 <React.Fragment>
-                                    <tr>
+                                    <tr className="playerHeader">
                                         {props.players.map((player) => {
                                             return (
                                                 <th>{player}</th>
@@ -33,7 +33,7 @@ function PointPad(props) {
                             )
                         })}
                     </table>
-                </Col>
+                </div>
             </Row>
         </Container>
     );

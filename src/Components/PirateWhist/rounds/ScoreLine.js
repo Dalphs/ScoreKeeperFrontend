@@ -1,36 +1,39 @@
-import React from 'react';
+import React, {useState} from 'react';
 import TricksOrClubs from './TricksOrClubs'
 import LadiesOrKing from './LadiesOrKing'
 import SuperRound from './SuperRound'
 import Solitaire from './Solitaire'
+import './styles.css'
 
 function ScoreLine(props) {
+
+    const [showRoundComponent, setShowRoundComponent] = useState(false)
 
     const getRoundComponent = (round) => {
         console.log(round)
         switch(round.type) {
             case "Minus stik" : 
             case "Minus klør" :
-                return <TricksOrClubs type={round === "Minus stik" ? "Minus stik" : "Minus klør"}></TricksOrClubs>
+                return <TricksOrClubs round={round}></TricksOrClubs>
             case "Minus damer" :
             case "Klør konge" :
-                return <LadiesOrKing type={round === "Minus damer" ? "Minus damer" : "Klør konge"}></LadiesOrKing>
+                return <LadiesOrKing round={round}></LadiesOrKing>
             case "Super runde" :
-                return <SuperRound></SuperRound>
+                return <SuperRound round={round}></SuperRound>
             case "Kabale" : 
-                return <Solitaire></Solitaire>
+                return <Solitaire round={round}></Solitaire>
         }
     }
 
     return (
         <React.Fragment>
-            <tr>
+            <tr className="scoreRow" onClick={() => setShowRoundComponent(!showRoundComponent)}>
                 {props.round.players.map(player => {
                     return <td>{player.points}</td>
                 })}
             </tr>
             <tr>
-                <td colSpan={4}>{getRoundComponent(props.round)}</td>
+                <td className={`accordian ${showRoundComponent ? "" : "hidden"}`} colSpan={4}>{getRoundComponent(props.round)}</td>
             </tr>
         </React.Fragment>
     );
