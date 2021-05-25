@@ -2,9 +2,10 @@ import React from 'react';
 
 function TricksOrClubs(props) {
     return (
-        <tr>
-            {console.log(props.round)}    
-        </tr>
+        <div>
+            <p>Hvor mange {props.type === "Minus stik" ? "stik" : "klør"} fik hver spiller:</p>
+            <div></div>
+        </div>
     );
 }
 

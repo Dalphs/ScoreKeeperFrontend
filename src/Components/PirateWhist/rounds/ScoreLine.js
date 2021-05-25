@@ -29,7 +29,7 @@ function ScoreLine(props) {
         <React.Fragment>
             <tr className="scoreRow" onClick={() => setShowRoundComponent(!showRoundComponent)}>
                 {props.round.players.map(player => {
-                    return <td>{player.points}</td>
+                    return <td>{player.pointsBeforeEvent + player.event.points}</td>
                 })}
             </tr>
             <tr>

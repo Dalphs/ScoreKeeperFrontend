@@ -17,7 +17,7 @@ function PointPad(props) {
                                     <tr className="playerHeader">
                                         {props.players.map((player) => {
                                             return (
-                                                <th>{player}</th>
+                                                <th>{player.name}</th>
                                             )
                                         })}
 
