@@ -14,14 +14,14 @@ function ScoreLine(props) {
         switch(round.type) {
             case "Minus stik" : 
             case "Minus klør" :
-                return <TricksOrClubs round={round}></TricksOrClubs>
+                return <TricksOrClubs gameId={props.gameId} round={round}></TricksOrClubs>
             case "Minus damer" :
             case "Klør konge" :
-                return <LadiesOrKing round={round}></LadiesOrKing>
+                return <LadiesOrKing gameId={props.gameId} round={round}></LadiesOrKing>
             case "Super runde" :
-                return <SuperRound round={round}></SuperRound>
+                return <SuperRound gameId={props.gameId} round={round}></SuperRound>
             case "Kabale" : 
-                return <Solitaire round={round}></Solitaire>
+                return <Solitaire gameId={props.gameId} round={round}></Solitaire>
         }
     }
 

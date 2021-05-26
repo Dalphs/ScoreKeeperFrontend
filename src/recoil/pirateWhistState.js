@@ -140,10 +140,10 @@ export const pirateWhistState = atom({
 
 export const getDemoState = () => {
     return(
-        {players:[{id: 1, name:"Simon"}, {id: 2, name:"Sune"}, {id: 3, name:"Søren"}, {id: 4, name:"Sune"}], 
+        {players:[{id: 1, name:"Simon"}, {id: 2, name:"Sune"}, {id: 3, name:"Søren"}, {id: 4, name:"Kira"}], 
             games:[{ 
-                rounds: [
-                    {type: "Minus stik", players: [
+                id:1, rounds: [
+                    {type: "Minus stik", id:1 ,players: [
                         {
                             id : 1,
                             name: "Simon",
@@ -163,13 +163,13 @@ export const getDemoState = () => {
                             event: {points : 1, pointGivingEvents:4} 
                         },
                         {
-                            id : "Kira",
-                            name: null,
+                            id : 4,
+                            name: "Kira",
                             pointsBeforeEvent: 0,
                             event: {points : 1.25, pointGivingEvents:5} 
                         }
                     ]}, 
-                    {type: "Minus klør", players: [
+                    {type: "Minus klør", id:2, players: [
                         {
                             id : 1,
                             name: "Simon",
@@ -189,13 +189,13 @@ export const getDemoState = () => {
                             event: {points : 1, pointGivingEvents:4} 
                         },
                         {
-                            id : "Kira",
-                            name: null,
+                            id : 4,
+                            name: "Kira",
                             pointsBeforeEvent: 1.25,
                             event: {points : 1.25, pointGivingEvents:5} 
                         }
                     ]}, 
-                    {type: "Minus damer", players: [
+                    {type: "Minus damer", id:3, players: [
                         {
                             id : 1,
                             name: "Simon",
@@ -215,13 +215,13 @@ export const getDemoState = () => {
                             event: {points : 0, pointGivingEvents:0} 
                         },
                         {
-                            id : "Kira",
-                            name: null,
+                            id : 4,
+                            name: "Kira",
                             pointsBeforeEvent: 0,
                             event: {points : 0, pointGivingEvents:0} 
                         }
                     ]},
-                    {type: "Klør konge", players: [
+                    {type: "Klør konge", id: 4, players: [
                         {
                             id : 1,
                             name: "Simon",
@@ -241,13 +241,13 @@ export const getDemoState = () => {
                             event: {points : 0, pointGivingEvents:0} 
                         },
                         {
-                            id : "Kira",
-                            name: null,
+                            id : 4,
+                            name: "Kira",
                             pointsBeforeEvent: 0,
                             event: {points : 0, pointGivingEvents:0} 
                         }
                     ]},
-                    {type: "Kabale", players: [
+                    {type: "Kabale", id:5, players: [
                         {
                             id : 1,
                             name: "Simon",
@@ -267,8 +267,8 @@ export const getDemoState = () => {
                             event: {points : 0, pointGivingEvents:0} 
                         },
                         {
-                            id : "Kira",
-                            name: null,
+                            id : 4,
+                            name: "Kira",
                             pointsBeforeEvent: 0,
                             event: {points : 0, pointGivingEvents:0} 
                         }

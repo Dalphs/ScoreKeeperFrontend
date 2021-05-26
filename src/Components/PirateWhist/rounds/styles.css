@@ -1,3 +1,17 @@
 .scoreRow{
     cursor:pointer;
 }
+
+.scoreComponent{
+    width:100%;
+}
+
+.scoreComponent p{
+    margin:0;
+    padding: 0;
+    text-align: center;
+}
+
+.scoreComponent button{
+    margin: 0em 1em;
+}

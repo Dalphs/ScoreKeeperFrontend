@@ -9,7 +9,7 @@ function PointPad(props) {
     return (
         <Container>
             <Row className="justify-content-md-center">
-                <div className="df-jcc">
+                <div className="df jcc">
                     <table>
                         {props.games.map((game) => {
                             return (
@@ -24,7 +24,7 @@ function PointPad(props) {
                                     </tr>
                                     {game.rounds.map((round) => {
                                         return(
-                                                <ScoreLine round={round}></ScoreLine>
+                                                <ScoreLine gameId={game.id} round={round}></ScoreLine>
                                         )
                                        
                                     })}

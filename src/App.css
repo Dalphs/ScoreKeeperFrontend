@@ -12,7 +12,19 @@ body{
   display:none;
 }
 
-.df-jcc {
+.df {
   display: flex;
+}
+
+.jcc{
   justify-content: center;
 }
+
+.fdr{
+  flex-direction: row;
+}
+
+.fdc{
+  flex-direction: column;
+}
+
