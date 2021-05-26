@@ -5,32 +5,30 @@ import { useRecoilState } from 'recoil'
 function TricksOrClubs(props) {
     const [pirateSession, setPirateSession] = useRecoilState(pirateWhistState)
 
-    const increaseCount = (playerId) => {
-        let currentSession = {...pirateSession}
+    const increaseCount = (playerId, increase) => {
+        let currentSession = JSON.parse(JSON.stringify(pirateSession))
         console.log(currentSession)
         
 
-        let currentGame = currentSession.games.forEach((game) => {
+        let currentGame, currentRound
+        currentSession.games.forEach((game) => {
             console.log(game)
             if (game.id === props.gameId){
-                return game
+                currentGame = game
             }
         })
         console.log(currentGame)
-        let currentRound = currentGame.rounds.forEach( round => {
+        currentGame.rounds.forEach( round => {
             if(round.id === props.round.id)
-                return round
+                currentRound = round
         })
 
         currentRound.players.forEach( player => {
             if(player.id === playerId)
-                player.pointGivingEvents ++;
+                player.event.pointGivingEvents = player.event.pointGivingEvents + increase;
         })
+        setPirateSession(currentSession)
         
-    }
-
-    const decreaseCount = (playerId) => {
-
     }
 
     return (
@@ -40,9 +38,9 @@ function TricksOrClubs(props) {
                 {props.round.players.map((player) => {
                     return (
                         < div className="scoreComponent df fdc" >
-                            <button onClick={() => increaseCount(player.id)}>+</button>
+                            <button onClick={() => increaseCount(player.id, 1)}>+</button>
                             <p>{player.event.pointGivingEvents}</p>
-                            <button onClick={() => decreaseCount(player.id)}>-</button>
+                            <button onClick={() => increaseCount(player.id, -1)}>-</button>
                         </div>
                     )
                 })}

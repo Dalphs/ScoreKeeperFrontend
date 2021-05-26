@@ -13,5 +13,10 @@
 }
 
 .scoreComponent button{
-    margin: 0em 1em;
+    margin: 0em 2em;
+}
+
+td.accordian {
+    padding-right:0;
+    padding-left: 0;
 }
