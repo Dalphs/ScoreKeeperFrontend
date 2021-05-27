@@ -29,11 +29,11 @@ function ScoreLine(props) {
         <React.Fragment>
             <tr className="scoreRow" onClick={() => setShowRoundComponent(!showRoundComponent)}>
                 {props.round.players.map(player => {
-                    return <td>{player.pointsBeforeEvent + player.event.points}</td>
+                    return <td><p className="pointParagraph">{player.pointsBeforeEvent + player.event.points}</p></td>
                 })}
             </tr>
             <tr>
-                <td className={`accordian ${showRoundComponent ? "" : "hidden"}`} colSpan={4}>{getRoundComponent(props.round)}</td>
+                <td className={`accordian flex1 ${showRoundComponent ? "" : "hidden"}`} colSpan={4}>{getRoundComponent(props.round)}</td>
             </tr>
         </React.Fragment>
     );

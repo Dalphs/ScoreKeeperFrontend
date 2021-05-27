@@ -24,8 +24,10 @@ function TricksOrClubs(props) {
         })
 
         currentRound.players.forEach( player => {
-            if(player.id === playerId)
+            if(player.id === playerId){
                 player.event.pointGivingEvents = player.event.pointGivingEvents + increase;
+                player.event.points = player.event.pointGivingEvents * 0.25;
+            }
         })
         setPirateSession(currentSession)
         
